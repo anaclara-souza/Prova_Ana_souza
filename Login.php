@@ -13,7 +13,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $stmt->execute();
     $usuario = $stmt ->fetch(PDO::FETCH_ASSOC);
 
-    if ($usuario && password_verify($senha,$usuario['senha']));{
+    if ($usuario && password_verify($senha,$usuario['senha'])){
         //LOGIN BEM SUCEDIDO, DEFINE VARIAVEIS DE SESSAO
         $_SESSION['usuario'] = $usuario['nome'];
         $_SESSION['perfil'] = $usuario['id_perfil'];
