@@ -5,7 +5,7 @@
 
     //GARANTE QUE O USUARIO ESTEJA LOGADO
     if(!isset($_SESSION['id_usuario'])){
-        echo "<script> alert('Acesso negado!'); window.location.href='login.php'; </script>";
+        echo "<script> alert('Acesso negado!'); window.location.href='Login.php'; </script>";
         exit();
     }
 
@@ -33,9 +33,9 @@
             if ($stmt -> execute()) {
                 session_destroy(); // FINALIZA A SESSÃO
 
-                echo "<script> alert('Senha alterada com sucesso! Faça o login novamente.'); window.location.href='login.php'; </script>";
+                echo "<script> alert('Senha alterada com sucesso! Faça o login novamente.'); window.location.href='Login.php'; </script>";
             } else {
-                echo "<script> alert('Falha ao alterar senha!'); window.location.href='login.php'; </script>";
+                echo "<script> alert('Falha ao alterar senha!'); window.location.href='Login.php'; </script>";
             }
         }
     }
@@ -48,7 +48,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alterar Senha</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h2>Alterar senha</h2>
