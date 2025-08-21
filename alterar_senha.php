@@ -75,6 +75,7 @@
             var tipo = senha1.type === 'password' ? 'text': 'password';
             senha1.type = tipo;
             senha2.type = tipo;
+            
         };
     </script>
 </body>
