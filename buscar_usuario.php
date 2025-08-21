@@ -44,14 +44,14 @@
 <body>
     <h2>Lista de Usuários</h2>
     <form action="buscar_usuario.php" method="POST">
-        <label for="busca">Digite o ID ou NOME(opcionsl):</label>
+        <label for="busca">Digite o ID ou NOME(opcional):</label>
         <input type="text" id="busca" name="busca">
         <button type="submit">Pesquisar</button>
     </form>
     <?php if (!empty($usuarios)):?>
         <table border="2">
             <tr>
-                <th>ID</th>
+                <th style="text-align: center;">ID</th>
                 <th>Nome</th>
                 <th>E-mail</th>
                 <th>perfil</th>
@@ -65,7 +65,7 @@
                     <td><?=htmlspecialchars($usuario['id_perfil'])?> </td>
                     <td> <a href="alterar_usuario.php?id=<?=htmlspecialchars($usuario['id_usuario'])?>">Alterar</a>
 
-                    <td> <a href="excluir_usuario.php?id=<?=htmlspecialchars($usuario['id_usuario'])?>" onclick="return confirm('Tem certexa que deseja excluir esse usuario')">Excluir</a>
+                    <td> <a href="excluir_usuario.php?id=<?=htmlspecialchars($usuario['id_usuario'])?>" onclick="return confirm('Tem certeza que deseja excluir esse usuario?')">Excluir</a>
                 </td>
                 </tr>
                 <?php endforeach; ?>
