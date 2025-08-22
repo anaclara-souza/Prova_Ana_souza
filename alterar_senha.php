@@ -5,7 +5,7 @@
 
     //GARANTE QUE O USUARIO ESTEJA LOGADO
     if(!isset($_SESSION['id_usuario'])){
-        echo "<script> alert('Acesso negado!'); window.location.href='Login.php'; </script>";
+        echo "<script> alert('Acesso negado!'); window.location.href='index.php'; </script>";
         exit();
     }
 
@@ -33,9 +33,9 @@
             if ($stmt -> execute()) {
                 session_destroy(); // FINALIZA A SESSÃO
 
-                echo "<script> alert('Senha alterada com sucesso! Faça o login novamente.'); window.location.href='Login.php'; </script>";
+                echo "<script> alert('Senha alterada com sucesso! Faça o login novamente.'); window.location.href='index.php'; </script>";
             } else {
-                echo "<script> alert('Falha ao alterar senha!'); window.location.href='Login.php'; </script>";
+                echo "<script> alert('Falha ao alterar senha!'); window.location.href='index.php'; </script>";
             }
         }
     }
@@ -51,6 +51,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <?php include_once 'menu_dropdowm.php';?>
     <h2>Alterar senha</h2>
     <p>Olá, <strong><?php echo $_SESSION['usuario']; ?></strong>. Digite sua nova senha abaixo:</p>
 
@@ -75,7 +76,7 @@
             var tipo = senha1.type === 'password' ? 'text': 'password';
             senha1.type = tipo;
             senha2.type = tipo;
-            
+            <a href="principal.php" class="btn-voltar">Voltar</a>
         };
     </script>
 </body>

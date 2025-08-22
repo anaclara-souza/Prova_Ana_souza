@@ -4,7 +4,7 @@
     require_once 'conexao.php';
 
     if(!isset($_SESSION['usuario'])) {
-        header ("Location: Login.php");
+        header ("Location: index.php");
         exit();
     }
 

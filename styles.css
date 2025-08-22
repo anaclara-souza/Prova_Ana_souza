@@ -168,3 +168,79 @@ button {
 button:hover {
     background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
 }
+
+.tabela-usuarios {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.tabela-usuarios th {
+    background-color: #1e90ff;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.tabela-usuarios td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.tabela-usuarios tr:nth-child(even) {
+    background-color: #f0f8ff;
+}
+
+.tabela-usuarios tr:hover {
+    background-color: #dbeeff;
+}
+.btn-alterar {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #0056b3;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.btn-alterar:hover {
+    background-color: #1e90ff;
+}
+
+.btn-excluir {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #4682b4;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.btn-excluir:hover {
+    background-color: #315f86;
+}
+
+.btn-voltar {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #1e90ff; 
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+}
+
+.btn-voltar:hover {
+    background-color: #0056b3; 
+    transform: scale(1.05);
+}

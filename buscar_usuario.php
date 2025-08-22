@@ -42,37 +42,38 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+        <?php include_once 'menu_dropdowm.php';?>
     <h2>Lista de Usuários</h2>
     <form action="buscar_usuario.php" method="POST">
         <label for="busca">Digite o ID ou NOME(opcional):</label>
         <input type="text" id="busca" name="busca">
         <button type="submit">Pesquisar</button>
     </form>
-    <?php if (!empty($usuarios)):?>
-        <table border="2">
+ <?php if (!empty($usuarios)):?>
+    <table class="tabela-usuarios" border="2">
+        <tr>
+            <th style="text-align: center;">ID</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>perfil</th>
+            <th>Ações</th>
+        </tr>
+        <?php foreach($usuarios as $usuario): ?>
             <tr>
-                <th style="text-align: center;">ID</th>
-                <th>Nome</th>
-                <th>E-mail</th>
-                <th>perfil</th>
-                <th>Ações</th>
-            </tr>
-            <?php foreach($usuarios as $usuario): ?>
-                <tr>
-                    <td><?=htmlspecialchars($usuario['id_usuario'])?> </td>
-                    <td><?=htmlspecialchars($usuario['nome'])?> </td>
-                    <td><?=htmlspecialchars($usuario['email'])?> </td>
-                    <td><?=htmlspecialchars($usuario['id_perfil'])?> </td>
-                    <td> <a href="alterar_usuario.php?id=<?=htmlspecialchars($usuario['id_usuario'])?>">Alterar</a>
-
-                    <td> <a href="excluir_usuario.php?id=<?=htmlspecialchars($usuario['id_usuario'])?>" onclick="return confirm('Tem certeza que deseja excluir esse usuario?')">Excluir</a>
+                <td><?=htmlspecialchars($usuario['id_usuario'])?> </td>
+                <td><?=htmlspecialchars($usuario['nome'])?> </td>
+                <td><?=htmlspecialchars($usuario['email'])?> </td>
+                <td><?=htmlspecialchars($usuario['id_perfil'])?> </td>
+                <td> 
+                    <a href="alterar_usuario.php?id=<?=htmlspecialchars($usuario['id_usuario'])?>" class="btn-alterar">Alterar</a>
+                    <a href="excluir_usuario.php?id=<?=htmlspecialchars($usuario['id_usuario'])?>" class="btn-excluir" onclick="return confirm('Tem certeza que deseja excluir esse usuario?')">Excluir</a>
                 </td>
-                </tr>
-                <?php endforeach; ?>
-        </table>
-        <?php else: ?>
-            <p>Nenhum usuario encontrado</p>
-            <?php endif; ?>
-            <a href="principal.php"></a>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+<?php else: ?>
+    <p>Nenhum usuario encontrado</p>
+<?php endif; ?>
+         <a href="principal.php" class="btn-voltar">Voltar</a>
 </body>
 </html>

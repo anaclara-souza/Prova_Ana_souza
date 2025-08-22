@@ -43,6 +43,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+        <?php include_once 'menu_dropdowm.php';?>
     <h2>Cadastro Usuário</h2>
 
     <form action="cadastro_usuario.php" method="POST">
@@ -67,6 +68,6 @@
         <button type="reset">Cancelar</button>
     </form>
 
-    <a href="principal.php">Voltar</a>
+<a href="principal.php" class="btn-voltar">Voltar</a>
 </body>
 </html>

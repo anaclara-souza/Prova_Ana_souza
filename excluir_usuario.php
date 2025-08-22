@@ -44,6 +44,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+        <?php include_once 'menu_dropdowm.php';?>
     <h2>Excluir usuario</h2>
 
     <?php if (!empty($usuarios)):?>
@@ -70,6 +71,6 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
         <?php else: ?>
             <p>Nenhum usuario encontrado</p>
             <?php endif; ?>
-            <a href="principal.php">Voltar</a>
+<a href="principal.php" class="btn-voltar">Voltar</a>
 </body>
 </html>

@@ -33,7 +33,7 @@
             }
         } else {
             // LOGIN INVÁLIDO
-            echo "<script> alert('E-mail ou senha incorretos!'); window.location.href='Login.php'; </script>";
+            echo "<script> alert('E-mail ou senha incorretos!'); window.location.href='index.php'; </script>";
         }
     }
 ?>
@@ -50,7 +50,7 @@
 <body>
     <h2>Login</h2>
     
-    <form action="login.php" method="POST">
+    <form action="index.php" method="POST">
         <label for="email">E-mail:</label>
         <input type="email" name="email" id="email" required>
 

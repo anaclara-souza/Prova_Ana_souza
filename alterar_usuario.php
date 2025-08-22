@@ -49,6 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+        <?php include_once 'menu_dropdowm.php';?>
     <h2>Alterar Usuários</h2>
     <form action="alterar_usuario.php" method="POST">
         <label for="busca_usuario">Digite o ID ou NOME do usuario:</label>
@@ -87,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="reset">Cancelar</button>
         </form>
     <?php endif; ?>
-    <a href="principal.php">Voltar</a>
+            <a href="principal.php" class="btn-voltar">Voltar</a>
 </body>
 
 </html>
