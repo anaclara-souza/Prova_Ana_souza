@@ -4,7 +4,6 @@
     require_once 'conexao.php';
 
     // VERIFICA SE O USUARIO TEM PERMISSÃO
-    // SUPONDO QUE O PERFIL '1' SEJA O 'ADM'
     if($_SESSION['perfil'] != 1){
         echo "Acesso negado!";
         exit();
@@ -46,15 +45,15 @@
         <?php include_once 'menu_dropdowm.php';?>
     <h2>Cadastro Usuário</h2>
 
-    <form action="cadastro_usuario.php" method="POST">
+    <form action="cadastro_usuario.php" method="POST" onsubmit="return validarUsuario()">
         <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome" required>
+        <input type="text" name="nome" id="nome" required maxlength="50">
 
         <label for="email">E-mail:</label>
         <input type="email" name="email" id="email" required>
 
         <label for="senha">Senha:</label>
-        <input type="password" name="senha" id="senha" required>
+        <input type="password" name="senha" id="senha" required minlength="6">
 
         <label for="id_perfil">Perfil:</label>
         <select name="id_perfil" id="id_perfil">
@@ -69,5 +68,58 @@
     </form>
 
 <a href="principal.php" class="btn-voltar">Voltar</a>
+<p>Ana Clara De Souza - Estudante - Técnico - Desenvolvimento de Sistemas</p>
+
+
+<script>
+
+    document.getElementById("nome").addEventListener("input", function () {
+        this.value = this.value.replace(/[^a-zA-ZÀ-ÿ\s]/g, "");
+    });
+
+
+    function validarEmail(email) {
+        let regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regexEmail.test(email);
+    }
+
+    document.getElementById("senha").addEventListener("input", function () {
+        let senha = this.value;
+        let forca = "Fraca";
+
+        if (senha.length >= 8 && /[A-Z]/.test(senha) && /[0-9]/.test(senha)) {
+            forca = "Forte";
+        } else if (senha.length >= 6) {
+            forca = "Média";
+        }
+
+        this.setCustomValidity("");
+        this.title = "Força da senha: " + forca;
+    });
+
+    function validarUsuario() {
+        let nome = document.getElementById("nome").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let senha = document.getElementById("senha").value;
+
+        if (nome.length < 3) {
+            alert("O nome deve ter pelo menos 3 caracteres.");
+            return false;
+        }
+
+        if (!validarEmail(email)) {
+            alert("Digite um e-mail válido.");
+            return false;
+        }
+
+        if (senha.length < 6) {
+            alert("A senha deve ter pelo menos 6 caracteres.");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
 </body>
 </html>

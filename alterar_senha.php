@@ -78,6 +78,9 @@
             senha2.type = tipo;
             <a href="principal.php" class="btn-voltar">Voltar</a>
         };
+        
+    <p>Ana Clara De Souza - Estudante - Técnico - Desenvolvimento de Sistemas</p>
+
     </script>
 </body>
 </html>

@@ -56,5 +56,8 @@
         <button type="submit">Enviar a senha temporária</button>
     </form>
 <a href="index.php" class="btn-voltar">Voltar</a>
+
+    <p>Ana Clara De Souza - Estudante - Técnico - Desenvolvimento de Sistemas</p>
+
 </body>
 </html>

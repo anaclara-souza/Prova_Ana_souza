@@ -59,7 +59,9 @@
 
         <button type="submit">Entrar</button>
     </form>
+    <p><a class="btn-alterar" href="recuperar_senha.php">Esqueci minha senha</a></p>
+    
+    <p>Ana Clara De Souza - Estudante - Técnico - Desenvolvimento de Sistemas</p>
 
-    <p><a href="recuperar_senha.php">Esqueci minha senha</a></p>
 </body>
 </html>

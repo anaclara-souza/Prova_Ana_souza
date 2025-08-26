@@ -89,6 +89,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     <?php endif; ?>
             <a href="principal.php" class="btn-voltar">Voltar</a>
+            
+    <p>Ana Clara De Souza - Estudante - Técnico - Desenvolvimento de Sistemas</p>
+
 </body>
 
 </html>
