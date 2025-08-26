@@ -60,7 +60,6 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
                     <td><?=htmlspecialchars($fornecedor['telefone'])?></td>
                     <td><?=htmlspecialchars($fornecedor['email'])?></td>
                     <td><?=htmlspecialchars($fornecedor['contato'])?></td>
-                    <td><?=htmlspecialchars($fornecedor['id_perfil'])?></td>
                     <td>
                         <a href="excluir_fornecedor.php?id=<?=htmlspecialchars($fornecedor['id_fornecedor'])?>" 
                            class="btn-excluir" 
@@ -74,6 +73,6 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
     <?php endif; ?>
 
     <a href="principal.php" class="btn-voltar">Voltar</a>
+    <p>Ana Clara De Souza - Estudante - Técnico - Desenvolvimento de Sistemas</p>
 </body>
 </html>
-    <p>Ana Clara De Souza - Estudante - Técnico - Desenvolvimento de Sistemas</p>

@@ -18,7 +18,7 @@
             $stmt=$pdo->prepare($sql);
             $stmt->bindParam(':busca',$busca,PDO::PARAM_INT);
         }else{
-            $sql="SELECT * FROM fornecedor WHERE nome_fornecedor LIKE :busca_nome ORDER BY nnome_fornecedorome ASC";
+            $sql="SELECT * FROM fornecedor WHERE nome_fornecedor LIKE :busca_nome ORDER BY nome_fornecedor ASC";
             $stmt=$pdo->prepare($sql);
             $stmt->bindValue(':busca_nome',"%$busca%",PDO::PARAM_STR);
         }
@@ -68,7 +68,6 @@
                     <td><?=htmlspecialchars($fornecedor['telefone'])?></td>
                     <td><?=htmlspecialchars($fornecedor['email'])?></td>
                     <td><?=htmlspecialchars($fornecedor['contato'])?></td>
-                    <td><?=htmlspecialchars($fornecedor['id_perfil'])?></td>
                     <td>
                     <a href="alterar_fornecedor.php?id=<?=htmlspecialchars($fornecedor['id_fornecedor'])?>" class="btn-alterar">Alterar</a>
                     <a href="excluir_fornecedor.php?id=<?=htmlspecialchars($fornecedor['id_fornecedor'])?>" class="btn-excluir" onclick="return confirm('Tem certeza que deseja excluir esse fornecedor?')">Excluir</a>
