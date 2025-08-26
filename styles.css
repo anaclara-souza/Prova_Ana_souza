@@ -244,3 +244,31 @@ button:hover {
     background-color: #0056b3; 
     transform: scale(1.05);
 }
+
+.tabela-fornecedor {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.tabela-fornecedor th {
+    background-color: #1e90ff;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.tabela-fornecedor td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.tabela-fornecedor tr:nth-child(even) {
+    background-color: #f0f8ff;
+}
+
+.tabela-fornecedor tr:hover {
+    background-color: #dbeeff;
+}
