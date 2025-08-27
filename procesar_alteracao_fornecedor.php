@@ -8,29 +8,33 @@ if ($_SESSION['perfil'] != 1) {
     exit();
 }
 if ($_SERVER["REQUEST_METHOD"] =="POST"){
-    $id_usuario = $_POST['id_usuario'];
+    $id_fornecedor = $_POST['id_fornecedor'];
     $nome = $_POST['nome'];
     $email = $_POST['email'];
-    $id_perfil = $_POST['id_perfil'];
-    $nova_senha = !empty($_POST['nova_senha']) ? password_hash($_POST['nova_senha'], PASSWORD_DEFAULT) : null;
+
+
+
 
     if($nova_senha){
-        $sql = "UPDATE usuario SET nome = :nome, email = :email, id_perfil = :id_perfil, senha = :senha WHERE id_usuario = :id";
+        $sql = "UPDATE fornecedor SET nome = :nome, email = :email, senha = :senha WHERE id_fornecedor = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':senha',$nova_senha);
     }else{
-            $sql = "UPDATE usuario SET nome = :nome, email = :email, id_perfil = :id_perfil, WHERE id_usuario = :id";
+            $sql = "UPDATE fornecedor SET nome = :nome, email = :email, WHERE id_fornecedor = :id";
             $stmt = $pdo->prepare($sql);
     }
     $stmt->bindParam(':nome',$nome);
+    $stmt->bindParam(':endereco',$email);
+    $stmt->bindParam(':telefone',$nome);
     $stmt->bindParam(':email',$email);
-    $stmt->bindParam(':id_perfil',$id_perfil);
-    $stmt->bindParam(':id',$id_usuario);
+    $stmt->bindParam(':contato',$nome);
+    
+    $stmt->bindParam(':id',$id_fornecedor);
 
     if($stmt->execute()){
-        echo "<script> alert('Usuario atualizado com sucesso!'); window.location.href='buscar_usuario.php';</script>";
+        echo "<script> alert('Fornecedor atualizado com sucesso!'); window.location.href='buscar_fornecedor.php';</script>";
     }else{
-        echo "<script> alert(' Erro ao Atualizar o usuario'); window.location.href='alterar_usuario.php?id=$usuario';</script>";
+        echo "<script> alert(' Erro ao Atualizar o fornecedor'); window.location.href='alterar_fornecedor.php?id=$fornecedor';</script>";
     }
 }
 ?>
