@@ -64,6 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="processar_alteracao_fornecedor.php" method="POST">
             <input type="hidden" name="id_fornecedor" value="<?= htmlspecialchars($fornecedor['id_fornecedor']) ?>">
 
+
             <label for="nome_fornecedor">Nome:</label>
             <input type="text" id="nome_fornecedor" name="nome_fornecedor" value="<?= htmlspecialchars($fornecedor['nome_fornecedor']) ?>" required>
 
@@ -80,10 +81,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             <label for="contato">Contato:</label>
             <input type="text" id="contato" name="contato" value="<?= htmlspecialchars($fornecedor['contato']) ?>" required>
+            
+                <button type="reset">Cancelar</button>
+                <button type="submit">Alterar</button>
 
-            <button type="submit">Alterar</button>
-            <button type="reset">Cancelar</button>
         </form>
+        
     <?php endif; ?>
             <a href="principal.php" class="btn-voltar">Voltar</a>
             

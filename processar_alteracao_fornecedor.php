@@ -15,12 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] =="POST"){
     $email = $_POST['email'];
     $contato = $_POST['contato'];
  
-    }else{
+    }
             $sql = "UPDATE fornecedor SET nome_fornecedor = :nome_fornecedor, endereco = :endereco, telefone = :telefone, email = :email, contato = :contato WHERE id_fornecedor = :id_fornecedor";
             $stmt = $pdo->prepare($sql);
-    }
     $stmt->bindParam(':nome_fornecedor',$nome_fornecedor);
-    $stmt->bindParam(':endereco',$email);
+    $stmt->bindParam(':endereco',$endereco);
     $stmt->bindParam(':telefone',$telefone);
     $stmt->bindParam(':email',$email);
     $stmt->bindParam(':contato',$contato);
