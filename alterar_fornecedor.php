@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':busca', $busca, PDO::PARAM_INT);
         } else {
-            $sql = "SELECT * FROM fornecedor WHERE nome LIKE :busca_nome";
+            $sql = "SELECT * FROM fornecedor WHERE nome_fornecedor LIKE :busca_nome";
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(':busca_nome', "%$busca%", PDO::PARAM_STR);
         }
@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
         <?php include_once 'menu_dropdowm.php';?>
-    <h2>Alterar Usuários</h2>
+    <h2>Alterar Fornecedor</h2>
     <form action="alterar_fornecedor.php" method="POST">
         <label for="busca_fornecedor">Digite o ID ou NOME do fornecedor:</label>
         <input type="text" id="busca_fornecedor" name="busca_fornecedor" required onkeyup="buscarSugestoes()">
@@ -61,28 +61,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 
     <?php if ($fornecedor):  ?>
-        <form action="processa_alteracao_fornecedor.php" method="POST">
+        <form action="processar_alteracao_fornecedor.php" method="POST">
             <input type="hidden" name="id_fornecedor" value="<?= htmlspecialchars($fornecedor['id_fornecedor']) ?>">
 
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" value="<?= htmlspecialchars($fornecedor['nome']) ?>" required>
+            <label for="nome_fornecedor">Nome:</label>
+            <input type="text" id="nome_fornecedor" name="nome_fornecedor" value="<?= htmlspecialchars($fornecedor['nome_fornecedor']) ?>" required>
+
+
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" name="endereco" value="<?= htmlspecialchars($fornecedor['endereco']) ?>" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" name="telefone" value="<?= htmlspecialchars($fornecedor['telefone']) ?>" required>
 
 
             <label for="email">E-mail:</label>
             <input type="email" id="email" name="email" value="<?= htmlspecialchars($fornecedor['email']) ?>" required>
-
-
-            <label for="id_perfil">Perfil:</label>
-            <select name="id_perfil" id="id_perfil">
-                <option value="1" <?= $fornecedor['id_perfil'] == 1 ? 'selected' : '' ?>>Adiministrador</option>
-                <option value="2" <?= $fornecedor['id_perfil'] == 1 ? 'selected' : '' ?>>Secretaria</option>
-                <option value="3" <?= $fornecedor['id_perfil'] == 1 ? 'selected' : '' ?>>Almoxarife</option>
-                <option value="4" <?= $fornecedor['id_perfil'] == 1 ? 'selected' : '' ?>>Cliente</option>
-            </select>
-            <?php if ($_SESSION['perfil'] === 1): ?>
-                <label for="nova_senha">Nova Senha:</label>
-                <input type="password" id="nova_senha" name="nova_senha">
-            <?php endif; ?>
+            
+            <label for="contato">Contato:</label>
+            <input type="text" id="contato" name="contato" value="<?= htmlspecialchars($fornecedor['contato']) ?>" required>
 
             <button type="submit">Alterar</button>
             <button type="reset">Cancelar</button>
